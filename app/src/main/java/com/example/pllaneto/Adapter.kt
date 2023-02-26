@@ -1,5 +1,6 @@
 package com.example.pllaneto
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +28,11 @@ class Adapter(var planet: List<PlanetData>) : RecyclerView.Adapter<Adapter.myVie
 
     override fun onBindViewHolder(holder: myViewHolder, position: Int) {
         var dummyImage: Int? = null
+        holder.itemView.setOnCapturedPointerListener{
+            val intent= Intent(holder.itemView.context,PlanetDetail::class.java)
+            intent.putExtra("data",planet[position])
+            holder.itemView.context.startActivity(intent)
+        }
         holder.title.text = planet[position].title
         holder.galaxy.text = planet[position].galaxy
         holder.distance.text = planet[position].distance + " m km"
