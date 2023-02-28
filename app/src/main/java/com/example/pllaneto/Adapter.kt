@@ -28,9 +28,10 @@ class Adapter(var planet: List<PlanetData>) : RecyclerView.Adapter<Adapter.myVie
 
     override fun onBindViewHolder(holder: myViewHolder, position: Int) {
         var dummyImage: Int? = null
-        holder.itemView.setOnCapturedPointerListener{
+        holder.itemView.setOnClickListener{
             val intent= Intent(holder.itemView.context,PlanetDetail::class.java)
-            intent.putExtra("data",planet[position])
+            intent.putExtra("planet",planet[position])
+            intent.putExtra("planetImage",dummyImage)
             holder.itemView.context.startActivity(intent)
         }
         holder.title.text = planet[position].title
