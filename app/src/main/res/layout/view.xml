@@ -11,7 +11,7 @@
         android:id="@+id/planet_img"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:scr="@drawable/earth"
+        android:src="@drawable/earth"
         android:elevation="30dp"/>
 
     <androidx.cardview.widget.CardView
